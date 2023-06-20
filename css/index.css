@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Walter+Turncoat&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* Página inicial */
+
+#start-game {
+    width: 100vw;
+    height: 100vh;
+    background-color: #282E33;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.play-a {
+    color: white;
+    font-family: 'Walter Turncoat', cursive;
+    font-size: 70px;
+    text-decoration: none;
+}
+
+.play-a:hover {
+    text-decoration: underline;
+}
+
+/* Página de resultados */
+
+#resultado {
+    width: 100vw;
+    height: 100vh;
+    background-color: #282E33;
+}
+
+.res-p {
+    color: white;
+    font-family: 'Walter Turncoat', cursive;
+    font-size: 30px;
+    text-decoration: none;  
+}
