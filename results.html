@@ -15,8 +15,8 @@
     </div>
 </body>
 <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const score = urlParams.get('score');
+    let scoreElement = document.getElementById('score');
+    let score = localStorage.getItem('score');
     document.querySelector('#score').textContent = `${score}`;
 </script>
 
