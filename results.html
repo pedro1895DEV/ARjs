@@ -10,6 +10,7 @@
 
 <body>
     <div id="resultado">
+<<<<<<< HEAD
         <p class="res-p" id="score"></p>
     </div>
 </body>
@@ -18,6 +19,16 @@
     let score = localStorage.getItem('score');
 
     scoreElement.textContent = 'Sua pontuação: ' + score;
+=======
+        <p class="res-p">Sua pontuação final é: </p>
+        <span class="res-p" id="score"></span>
+    </div>
+</body>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const score = urlParams.get('score');
+    document.querySelector('#score').textContent = `${score}`;
+>>>>>>> 6ee1ff4842d9dc7a931febb1c8878966ed4512c3
 </script>
 
 </html>

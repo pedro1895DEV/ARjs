@@ -7,7 +7,7 @@
 
 /* Página inicial */
 
-#start-game {
+#start-game,  #resultado {
     width: 100vw;
     height: 100vh;
     background-color: #282E33;
@@ -30,15 +30,9 @@
 
 /* Página de resultados */
 
-#resultado {
-    width: 100vw;
-    height: 100vh;
-    background-color: #282E33;
-}
-
 .res-p {
     color: white;
     font-family: 'Walter Turncoat', cursive;
-    font-size: 30px;
+    font-size: 50px;
     text-decoration: none;  
 }
