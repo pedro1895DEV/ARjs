@@ -10,16 +10,14 @@
 
 <body>
     <div id="resultado">
-        <p class="res-p">Esse é o parágrafo de teste de funcionamento da aplicação.</p>
         <p class="res-p" id="score"></p>
     </div>
 </body>
 <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const score = urlParams.get('score');
+    let scoreElement = document.getElementById('score');
+    let score = localStorage.getItem('score');
 
-    document.getElementById('score').textContent = `Sua pontuação final é: ${score}`;
-
+    scoreElement.textContent = 'Sua pontuação: ' + score;
 </script>
 
 </html>

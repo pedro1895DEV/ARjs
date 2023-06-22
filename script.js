@@ -1,51 +1,45 @@
 let currentQuestion = 1;
-const totalQuestions = 2;
-let score = 0;
+let totalQuestions = 2;
 let timeLeft = 10;
+let score = 0;
 
-const timerElement = document.getElementById('timer');
+let timerElement = document.getElementById('timer');
 
-function checkAnswer(selectedOption) {
-  let isCorrect = false;
+AFRAME.registerComponent('marker-handler', {
+  init: function () {
+    let markerHiro = document.getElementById('marker-hiro');
+    let markerKanji = document.getElementById('marker-kanji');
 
-  if (currentQuestion === 1 && selectedOption === 'B') {
-    isCorrect = true;
-  } else if (currentQuestion === 2 && selectedOption === 'B') {
-    isCorrect = true;
+    markerHiro.addEventListener('markerFound', function () {
+      selectOption('hiro');
+    });
+
+    markerKanji.addEventListener('markerFound', function () {
+      selectOption('kanji');
+    });
   }
-
-  if (isCorrect) {
-    score++;
-  }
-
-  if (currentQuestion < totalQuestions) {
-    showNextQuestion();
-  } else {
-    window.location.href = `results.html?score=${score}`;
-  }
-}
-
+});
 
 function showNextQuestion() {
   currentQuestion++;
   let currentQuestionElement = document.getElementById('question-' + currentQuestion);
   let previousQuestionElement = document.getElementById('question-' + (currentQuestion - 1));
 
-  previousQuestionElement.setAttribute('visible', 'false');
-  currentQuestionElement.setAttribute('visible', 'true');
+  previousQuestionElement.style.display = 'none';
+  currentQuestionElement.style.display = 'block';
 }
-
 
 function updateTimer() {
   if (timeLeft > 0) {
     timeLeft--;
-    timerElement.setAttribute('value', 'Tempo restante: ' + timeLeft);
+    timerElement.textContent = 'Tempo restante: ' + timeLeft;
   } else {
     if (currentQuestion < totalQuestions) {
       showNextQuestion();
       timeLeft = 10;
     } else {
-      window.location.href = `results.html?score=${score}`;
+      localStorage.setItem('score', score);
+      window.location.href = 'results.html';
     }
   }
 }
@@ -58,23 +52,10 @@ function selectOption(markerType) {
     selectedOption = 'B';
   }
 
-  checkAnswer(selectedOption);
+  if ((currentQuestion === 1 && selectedOption === 'B') ||
+      (currentQuestion === 2 && selectedOption === 'B')) {
+    score++;
+  }
 }
 
-const countdown = setInterval(updateTimer, 1000);
-
-
-AFRAME.registerComponent('marker-handler', {
-  init: function () {
-    const markerHiro = document.getElementById('marker-hiro');
-    const markerKanji = document.getElementById('marker-kanji');
-
-    markerHiro.addEventListener('markerFound', function () {
-      selectOption('hiro');
-    });
-
-    markerKanji.addEventListener('markerFound', function () {
-      selectOption('kanji');
-    });
-  }
-});
+let countdown = setInterval(updateTimer, 1000);

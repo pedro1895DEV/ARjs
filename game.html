@@ -5,44 +5,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto AR.js</title>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@cb0bb8407968be713b79008548b7044908ba5729/dist/aframe-master.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar.js"></script>
 </head>
 
 <body style="margin: 0; overflow: hidden;">
-    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;" marker-handler>
-        <a-text value="AR.js Quiz educativo" position="-0.4 1.1 -2" scale="1.25 1.25 1.25"></a-text>
-        <a-text id="timer" value="Tempo restante: 5" position="0 1.0 -1.5" scale="0.75 0.75 0.75"></a-text>
+    <div style="display: flex; flex-direction: column; position:fixed; top: 0; left: 0;">
+        <div style="position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: lightgray;
+        padding: 10px;
+        text-align: center;">
+            <p id="timer">Tempo restante: 10</p>
+            <div id="question-1">
+                <p>Pergunta 1: Qual linguagem pode ser usada no Back-End e no Front-End?</p>
+                <ul>
+                    <p>A: Java</p>
+                    <p>B: JavaScript</p>
+                </ul>
+            </div>
+            <div id="question-2" style="display: none;">
+                <p>Pergunta 2: Qual tipo de variável deve ser usada no JavaScript? A partir da mais indicada?</p>
+                <ul>
+                    <p>A: var</p>
+                    <p>B: let e const</p>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <a-scene embedded arjs>
+                <a-marker-camera preset='hiro'></a-marker-camera>
+        
+                <a-marker type='pattern' url='hiro.patt' id="marker-hiro">
+                </a-marker>
+        
+                <a-marker type='pattern' url='kanji.patt' id="marker-kanji">
+                </a-marker>
+            </a-scene>
+        </div>
+    </div>
 
-        <a-entity id="quiz">
-            <a-entity id="question-1">
-                <a-text value="Pergunta 1: Qual linguagem pode ser usada no Back-End e no Front-End?"
-                    position="-0.5 1 -1" scale="0.4 0.4 0.4"></a-text>
-                <a-text value="A: Java" position="-0.1 0.8 -1" scale="0.3 0.3 0.3"></a-text>
-                <a-text value="B: JavaScript" position="0.6 0.8 -1" scale="0.4 0.4 0.4"></a-text>
-            </a-entity>
-
-            <a-entity id="question-2" visible="false">
-                <a-text
-                    value="Pergunta 2: Qual tipo de variable deve ser usada no JavaScript? A partir da mais indicada?"
-                    position="-0.5 1 -1" scale="0.4 0.4 0.4"></a-text>
-                <a-text value="A: let, const, var" position="-0.1 0.8 -1" scale="0.3 0.3 0.3"></a-text>
-                <a-text value="B: const, let, var" position="0.6 0.8 -1" scale="0.4 0.4 0.4"></a-text>
-            </a-entity>
-        </a-entity>
-    </a-scene>
-
-    <a-marker-camera preset='hiro'></a-marker-camera>
-
-    <a-marker type='pattern' url='hiro.patt' id="marker-hiro">
-        <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box>
-    </a-marker>
-
-    <a-marker type='pattern' url='kanji.patt' id="marker-kanji">
-        <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box>
-    </a-marker>
-
-    </a-scene>
 </body>
 <script src="script.js"></script>
 
