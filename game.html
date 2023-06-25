@@ -8,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@cb0bb8407968be713b79008548b7044908ba5729/dist/aframe-master.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar.js"></script>
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 
 <body style="margin: 0; overflow: hidden;">
@@ -16,22 +17,22 @@
         top: 0;
         left: 0;
         width: 100%;
-        background-color: lightgray;
+        background-color: transparent;
         padding: 10px;
         text-align: center;">
-            <p id="timer">Tempo restante: 10</p>
-            <div id="question-1">
-                <p>Pergunta 1: Qual linguagem pode ser usada no Back-End e no Front-End?</p>
+            <p id="timer" class="game-text">Tempo restante: 10</p>
+            <div id="question-1" style="margin-top: 20px;">
+                <p class="game-text">Pergunta 1: Qual linguagem pode ser usada no Back-End e no Front-End?</p>
                 <ul>
-                    <p>A: Java</p>
-                    <p>B: JavaScript</p>
+                    <p class="game-text">A: Java</p>
+                    <p class="game-text">B: JavaScript</p>
                 </ul>
             </div>
-            <div id="question-2" style="display: none;">
-                <p>Pergunta 2: Qual tipo de variável deve ser usada no JavaScript? A partir da mais indicada?</p>
+            <div id="question-2" style="display: none; margin-top: 20px;">
+                <p class="game-text">Pergunta 2: Qual tipo de variável deve ser usada no JavaScript? A partir da mais indicada?</p>
                 <ul>
-                    <p>A: var</p>
-                    <p>B: let e const</p>
+                    <p class="game-text">A: var</p>
+                    <p class="game-text">B: let e const</p>
                 </ul>
             </div>
         </div>
