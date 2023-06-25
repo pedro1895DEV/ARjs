@@ -38,7 +38,7 @@ function updateTimer() {
       showNextQuestion();
       timeLeft = 10;
     } else {
-      sessionStorage.setItem('score', score);
+      localStorage.setItem('score', score);
       window.location.href = 'results.html';
     }
   }
@@ -54,7 +54,7 @@ function selectOption(markerType) {
 
   if ((currentQuestion === 1 && selectedOption === 'B') ||
       (currentQuestion === 2 && selectedOption === 'B')) {
-    score+=100;
+    score++;
   }
 }
 
